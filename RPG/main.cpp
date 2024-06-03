@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <cstring>
 #include <cstdlib>
+#include "Header.h"
 
 
 using namespace std;
@@ -17,33 +18,20 @@ int main()
 	
 	//переменные связанные с меню игры
 	int startG;
-	int slojnost;
+	int slojnost = 1;
     bool a = false;
 
 	//переменные связанные с игроком
     const int nameSIZE = 100;
-	int PlayerLVL = 0;
-	int PlayerHP = 100;
+	int PlayerLVL = 1;
+	int PlayerHP = PlayerLVL * 10;
 	char Plname[nameSIZE];
+	int AtakOrHP = 0;
 	
 	//переменные связанные с врагами
-	int EnemyLVL;
-	int enemyHP;
-
-
-
-	if (slojnost == 1)
-	{
-		EnemyLVL = (PlayerLVL - 1) + rand() % ((PlayerLVL + 1) - (PlayerLVL - 1) + 1);
-	}
-	else if (slojnost == 2)
-	{
-		EnemyLVL = (PlayerLVL) + rand() % ((PlayerLVL + 2) - (PlayerLVL) + 1);
-	}
-	else
-	{
-		EnemyLVL = (PlayerLVL + 1) + rand() % ((PlayerLVL + 4) - (PlayerLVL + 1) + 1);
-	}
+	int EnemyLVL = 1;
+	int enemyHP = 0;
+	int miss;
 
 
 
@@ -86,6 +74,9 @@ int main()
 		a = true;
 	}
 
+	//определение сложности игры, и силы врагов
+	LVLvrag(slojnost, PlayerLVL, EnemyLVL);
+	HPvrag(enemyHP, EnemyLVL);
 
 
 	if (startG == 1)
@@ -145,9 +136,26 @@ int main()
 	Sleep(1300);
 	system("cls");
 
+
 	
+	cout << endl << "\t1.Атака" << "    2.лечение";
+	cout << endl << "\t       Ввод: ";
+	cin >> AtakOrHP;
 
-
+	//атака
+	if (AtakOrHP == 1)
+	{
+		miss = rand() % 10;
+		if (miss > 8)
+		{
+			cout << "Вы промазоли!";
+		}
+		else
+		{
+			enemyHP - (PlayerLVL * 10) / 2;
+			cout << "попадание!";
+		}
+	}
 
 	return 0;
 }
