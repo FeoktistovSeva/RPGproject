@@ -31,7 +31,6 @@ int main()
 	//переменные связанные с врагами
 	int EnemyLVL = 1;
 	int enemyHP = 0;
-	int miss;
 
 
 
@@ -75,8 +74,8 @@ int main()
 	}
 
 	//определение сложности игры, и силы врагов
-	LVLvrag(slojnost, PlayerLVL, EnemyLVL);
-	HPvrag(enemyHP, EnemyLVL);
+	EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
+	enemyHP = HPvrag(enemyHP, EnemyLVL);
 
 
 	if (startG == 1)
@@ -137,25 +136,23 @@ int main()
 	system("cls");
 
 
-	
-	cout << endl << "\t1.Атака" << "    2.лечение";
+	fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
 	cout << endl << "\t       Ввод: ";
 	cin >> AtakOrHP;
 
 	//атака
-	if (AtakOrHP == 1)
+	for (;enemyHP >= 0;)
 	{
-		miss = rand() % 10;
-		if (miss > 8)
-		{
-			cout << "Вы промазоли!";
-		}
-		else
-		{
-			enemyHP - (PlayerLVL * 10) / 2;
-			cout << "попадание!";
-		}
+	  system("cls");
+	  enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL);
+
+
+	  fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
+	  cout << endl << "\t       Ввод: ";
+	  cin >> AtakOrHP;
 	}
+	system("cls");
+	cout << "попеда!";
 
 	return 0;
 }

@@ -1,4 +1,5 @@
-﻿  main.cpp
+﻿  Header.cpp
+  main.cpp
 C:\Users\0001\source\repos\RPG\RPG\main.cpp(16,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\0001\source\repos\RPG\RPG\main.cpp(154,12): warning C4552: "-": результат выражения не используется
+  Создание кода...
   RPG.vcxproj -> C:\Users\0001\source\repos\RPG\x64\Debug\RPG.exe
