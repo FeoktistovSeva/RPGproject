@@ -23,10 +23,12 @@ int main()
 
 	//переменные св€занные с игроком
     const int nameSIZE = 100;
-	int PlayerLVL = 1;
+	float PlayerLVL = 1;
 	int PlayerHP = PlayerLVL * 10;
 	char Plname[nameSIZE];
 	int AtakOrHP = 0;
+	int PlayerAttak;
+	bool nextUroven = false;
 	
 	//переменные св€занные с врагами
 	int EnemyLVL = 1;
@@ -129,30 +131,58 @@ int main()
 	cout << 'л';
 	Sleep(100);
 	cout << 'и';
-	
+
+	nextUroven = true;
 
 
 	Sleep(1300);
 	system("cls");
 
 
-	fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
+	/*fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
 	cout << endl << "\t       ¬вод: ";
-	cin >> AtakOrHP;
+	cin >> AtakOrHP;*/
+	
 
+
+	PlayerAttak = (PlayerLVL * 10) / 2;
 	//атака
-	for (;enemyHP >= 0;)
+	while (true)
 	{
-	  system("cls");
-	  enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL);
+		for (;enemyHP >= PlayerAttak;)
+		{
+	      system("cls");
+	      enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL);
+
+  
+	      fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
+		  cout << endl << "ваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
+	      cout << endl << "\t       ¬вод: ";
+	      cin >> AtakOrHP;
+		  
+		}
+		system("cls");
+		PlayerLVL += EnemyLVL / 2;
+		PlayerHP = PlayerLVL * 10;
+
+		cout << "\t враг повержен!";
+		Sleep(800);
+		system("cls");
+		cout << "\t это еще не конец.";
+		Sleep(300);
+		cout << '.';
+		Sleep(300);
+		cout << '.';
 
 
-	  fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
-	  cout << endl << "\t       ¬вод: ";
-	  cin >> AtakOrHP;
+		Sleep(700);
+		
+
+
+
+		EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
+		enemyHP = HPvrag(enemyHP, EnemyLVL);
 	}
-	system("cls");
-	cout << "попеда!";
 
 	return 0;
 }

@@ -55,7 +55,7 @@ int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL)
 		}
 		else
 		{
-			return enemyHP - (PlayerLVL * 10) / 2;
+			return enemyHP - (PlayerLVL * 5) / 2;
 		}
 	}
 	return enemyHP;
