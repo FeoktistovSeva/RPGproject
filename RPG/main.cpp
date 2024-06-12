@@ -31,11 +31,14 @@ int main()
 	bool nextUroven = false;
 	
 	//переменные св€занные с врагами
-	int EnemyLVL = 1;
+	float EnemyLVL = 1;
 	int enemyHP = 0;
 
 
-
+	//переменные св€зонные с инвентарем
+	int miniHeal = 0;
+	int BigHeal = 0;
+	int AttakBust = 0;
 
 
 
@@ -139,17 +142,14 @@ int main()
 	system("cls");
 
 
-	/*fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
-	cout << endl << "\t       ¬вод: ";
-	cin >> AtakOrHP;*/
-	
 
 
-	PlayerAttak = (PlayerLVL * 10) / 2;
+
+	PlayerAttak = (PlayerLVL * 3) / 2;
 	//атака
 	while (true)
 	{
-		for (;enemyHP >= PlayerAttak;)
+		for (;enemyHP > PlayerAttak;)
 		{
 	      system("cls");
 	      enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL);
@@ -160,9 +160,11 @@ int main()
 	      cout << endl << "\t       ¬вод: ";
 	      cin >> AtakOrHP;
 		  
+		  int change = InventoryPrint(miniHeal, BigHeal, AttakBust, AtakOrHP);
+		  InventoryUse(miniHeal, BigHeal, AttakBust, AtakOrHP, change, PlayerHP, PlayerAttak);
 		}
 		system("cls");
-		PlayerLVL += EnemyLVL / 2;
+		PlayerLVL += EnemyLVL / 5;
 		PlayerHP = PlayerLVL * 10;
 
 		cout << "\t враг повержен!";
