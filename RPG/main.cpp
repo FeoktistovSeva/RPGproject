@@ -32,13 +32,15 @@ int main()
 	
 	//переменные св€занные с врагами
 	float EnemyLVL = 1;
-	int enemyHP = 0;
+	unsigned enemyHP = 0;
 
 
 	//переменные св€зонные с инвентарем
 	int miniHeal = 0;
 	int BigHeal = 0;
 	int AttakBust = 0;
+
+	int RandItem = 0;
 
 
 
@@ -153,20 +155,51 @@ int main()
 		for (;enemyHP > PlayerAttak;)
 		{
 	      system("cls");
-	      enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL);
+	      enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak);
 
   
 	      fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
 		  cout << endl << "ваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
 	      cout << endl << "\t       ¬вод: ";
 	      cin >> AtakOrHP;
+
+		  RandItem = 3;//rand() % 10;
+
 		  if (AtakOrHP == 2)
 		  {
 			 int change = InventoryPrint(miniHeal, BigHeal, AttakBust, AtakOrHP);
-			 InventoryUse(miniHeal, BigHeal, AttakBust, AtakOrHP, change, PlayerHP, PlayerAttak);
+
+
+			 if (change == 1 && miniHeal != 0)
+			 {
+				 PlayerHP += 5;
+				 miniHeal--;
+			 }
+			 else if (change == 2 && BigHeal != 0)
+			 {
+				 PlayerHP += 15;
+				 BigHeal--;
+			 }
+			 else if (change == 3 && AttakBust != 0)
+			 {
+				 if (change == 3 && AttakBust != 0)
+				 {
+					 AttakBust--;
+					 PlayerAttak += 3;
+				 }
+			 }
+			 else if (change == 4)
+			 {
+				 AtakOrHP = 0;
+			 }
+			 else
+			 {
+				 system("cls");
+				 cout << "\tошибка!";
+				 Sleep(500);
+				 AtakOrHP = 0;
+			 }
 		  }
-		  
-		  
 		}
 
 		system("cls");
@@ -191,6 +224,26 @@ int main()
 		EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
 		enemyHP = HPvrag(enemyHP, EnemyLVL);
 		PlayerAttak = (PlayerLVL * 3) / 2;
+
+
+
+		//возможное получени€ случайного предмета с 30% шансом
+		if (RandItem <= 3 && RandItem != 0)
+		{
+			if (RandItem == 1)
+			{
+				miniHeal++;
+			}
+			else if (RandItem == 2)
+			{
+				BigHeal++;
+			}
+			else if (RandItem == 3)
+			{
+				AttakBust++;
+			}
+		}
+
 	}
 
 	return 0;

@@ -44,7 +44,7 @@ void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, 
 	cout << endl << "\t1.Атака" << "    2.инвентарь";
 }
 
-int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL)
+int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAttak)
 {
 	if (AtakOrHP == 1)
 	{
@@ -55,7 +55,7 @@ int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL)
 		}
 		else
 		{
-			return enemyHP - (PlayerLVL * 3) / 2;
+			return enemyHP - PlayerAttak;
 		}
 	}
 	return enemyHP;
@@ -77,33 +77,3 @@ int InventoryPrint(int miniHeal, int BigHeal, int AttakBust, const int AtakOrHP,
 	return change;
 }
 
-int InventoryUse(int miniHeal, int BigHeal, int AttakBust, int AtakOrHP, int change, int PlayerHP, int PlayerAttak)
-{
-	if (change == 1 && miniHeal != 0)
-	{
-		miniHeal--;
-		return PlayerHP += 5;
-	}
-	else if (change == 2 && BigHeal != 0)
-	{
-		BigHeal--;
-		return PlayerHP += 15;
-	}
-	else if (change == 3 && AttakBust != 0)
-	{
-		AttakBust--;
-		return PlayerAttak += 2;
-	}
-	else if (change == 4)
-	{
-		return AtakOrHP = 1;
-	}
-	else
-	{
-		system("cls");
-		cout << "\tошибка!";
-		Sleep(500);
-		return AtakOrHP = 1;
-	}
-	return 0;
-}
