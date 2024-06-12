@@ -146,7 +146,8 @@ int main()
 
 
 	PlayerAttak = (PlayerLVL * 3) / 2;
-	//атака
+
+	//бой
 	while (true)
 	{
 		for (;enemyHP > PlayerAttak;)
@@ -159,10 +160,15 @@ int main()
 		  cout << endl << "ваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
 	      cout << endl << "\t       ¬вод: ";
 	      cin >> AtakOrHP;
+		  if (AtakOrHP == 2)
+		  {
+			 int change = InventoryPrint(miniHeal, BigHeal, AttakBust, AtakOrHP);
+			 InventoryUse(miniHeal, BigHeal, AttakBust, AtakOrHP, change, PlayerHP, PlayerAttak);
+		  }
 		  
-		  int change = InventoryPrint(miniHeal, BigHeal, AttakBust, AtakOrHP);
-		  InventoryUse(miniHeal, BigHeal, AttakBust, AtakOrHP, change, PlayerHP, PlayerAttak);
+		  
 		}
+
 		system("cls");
 		PlayerLVL += EnemyLVL / 5;
 		PlayerHP = PlayerLVL * 10;
@@ -184,6 +190,7 @@ int main()
 
 		EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
 		enemyHP = HPvrag(enemyHP, EnemyLVL);
+		PlayerAttak = (PlayerLVL * 3) / 2;
 	}
 
 	return 0;
