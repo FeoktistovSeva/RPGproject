@@ -33,6 +33,7 @@ int main()
 	//переменные связанные с врагами
 	float EnemyLVL = 1;
 	unsigned enemyHP = 0;
+	int enemyChange;
 
 
 	//переменные связонные с инвентарем
@@ -83,7 +84,7 @@ int main()
 	//определение сложности игры, и силы врагов
 	EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
 	enemyHP = HPvrag(enemyHP, EnemyLVL);
-
+	int MAXenemyHP = enemyHP;
 
 	if (startG == 1)
 	{
@@ -152,6 +153,7 @@ int main()
 	//бой
 	while (true)
 	{
+		MAXenemyHP = HPvrag(enemyHP, EnemyLVL);
 		for (;enemyHP > PlayerAttak;)
 		{
 	      system("cls");
@@ -163,7 +165,7 @@ int main()
 	      cout << endl << "\t       Ввод: ";
 	      cin >> AtakOrHP;
 
-		  RandItem = 3;//rand() % 10;
+		  RandItem = rand() % 10;
 
 		  if (AtakOrHP == 2)
 		  {
@@ -199,8 +201,32 @@ int main()
 				 Sleep(500);
 				 AtakOrHP = 0;
 			 }
+
 		  }
+
+
+		  enemyChange = 1 + rand() % (2 - 1 ) + 1;
+		  system("cls");
+		  cout << "\tход противника...";
+		  Sleep(500);
+		 
+
+		  if (enemyChange == 2 && enemyHP != MAXenemyHP)
+		  {
+			  cout << "\n\tВраг лечится";
+			  enemyHP += 5;
+			  Sleep(700);
+		  }
+		  else
+		  {
+			  cout << "\n\tВраг атакует";
+			  PlayerHP -= EnemyLVL / 2;
+			  Sleep(700);
+		  }
+
+
 		}
+		
 
 		system("cls");
 		PlayerLVL += EnemyLVL / 5;
@@ -245,6 +271,8 @@ int main()
 		}
 
 	}
+
+	MAXenemyHP = HPvrag(enemyHP, EnemyLVL);
 
 	return 0;
 }
