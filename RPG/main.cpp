@@ -9,6 +9,9 @@
 
 using namespace std;
 
+
+
+
 int main()
 {
 	SetConsoleOutputCP(1251);
@@ -16,12 +19,12 @@ int main()
 	srand(time(NULL));
 
 	
-	//переменные связанные с меню игры
+	//меню игры
 	int startG;
 	int slojnost = 1;
     bool a = false;
 
-	//переменные связанные с игроком
+	//игрок
     const int nameSIZE = 100;
 	float PlayerLVL = 1;
 	int PlayerHP = PlayerLVL * 10;
@@ -30,13 +33,13 @@ int main()
 	int PlayerAttak;
 	bool nextUroven = false;
 	
-	//переменные связанные с врагами
+	//враг
 	float EnemyLVL = 1;
 	unsigned enemyHP = 0;
 	int enemyChange;
 
 
-	//переменные связонные с инвентарем
+	//инвентарь
 	int miniHeal = 0;
 	int BigHeal = 0;
 	int AttakBust = 0;
@@ -45,14 +48,14 @@ int main()
 
 
 
-	cout << "\tнапишите 1 чтобы начать";
+	cout << "\tвведите 1 чтобы начать игру";
 	cout << endl;
-	cout << "\tнапишите 2 чтобы открыть настройки";
+	cout << "\tвведите 2 чтобы открыть настройки сложности";
 	cout << endl;
-	cout << "\tнапишите 3 чтобы выйти";
+	cout << "\tвведите 3 чтобы выйти";
 
 	cout << endl << endl;
-	cout << "Ввод: ";
+	cout << "ввод: ";
 	cin >> startG;
 
 	system("cls");
@@ -65,7 +68,7 @@ int main()
 	}
 	else if (startG == 2)
 	{
-		cout << "\tВыбор уровня сложности";
+		cout << "\tвыберите сложность: ";
 		cout << endl;
 		cout << "\t      1.Easy";
 		cout << endl;
@@ -75,13 +78,13 @@ int main()
 
 
 		cout << endl << endl;
-		cout << "Ввод: ";
+		cout << "ввод: ";
 		cin >> slojnost;
 		system("cls");
 		a = true;
 	}
 
-	//определение сложности игры, и силы врагов
+	//Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГҐ Г±Г«Г®Г¦Г­Г®Г±ГІГЁ ГЁГЈГ°Г», ГЁ Г±ГЁГ«Г» ГўГ°Г ГЈГ®Гў
 	EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
 	enemyHP = HPvrag(enemyHP, EnemyLVL);
 	int MAXenemyHP = enemyHP;
@@ -95,48 +98,20 @@ int main()
 
 	if(a = true)
 	{
-		cout << "\tкак вас называть: ";
+		cout << "\tвведите имя: ";
 		cin >> Plname;
 	}
 	system("cls");
 
 
 
-	cout << "\tдобро пожаловать, " << Plname << "!";
+	cout << "\tдлбро пожаловать, " << Plname << "!";
 	Sleep(1700);
 	system("cls");
 
 	
 
-	cout << "\tо ";
-	Sleep(100);
-	cout << 'н';
-	Sleep(100);
-	cout << 'е';
-	Sleep(100);
-	cout << "т ";
-	Sleep(500);
-	cout << 'н';
-	Sleep(100);
-	cout << "а ";
-	Sleep(100);
-	cout << 'в';
-	Sleep(100);
-	cout << 'а';
-	Sleep(100);
-	cout << "с ";
-	Sleep(100);
-	cout << 'н';
-	Sleep(100);
-	cout << 'а';
-	Sleep(100);
-	cout << 'п';
-	Sleep(100);
-	cout << 'а';
-	Sleep(100);
-	cout << 'л';
-	Sleep(100);
-	cout << 'и';
+	cout << "\tна вас напали!";
 
 	nextUroven = true;
 
@@ -163,9 +138,13 @@ int main()
 
   
 	      fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
+
 	
-		  cout << endl << "\t\tваш уровень: " << PlayerLVL << "\t\t     уровень врага: " << EnemyLVL;
+		  cout << endl << "\t\tваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
 	      cout << endl << "\t\t\t       Ввод: ";
+
+		  
+
 	      cin >> AtakOrHP;
 
 		  RandItem = rand() % 10;
@@ -208,7 +187,7 @@ int main()
 		  }
 
 
-		  enemyChange = 1 + rand() % (2 - 1 ) + 1;
+		  enemyChange = 1 + rand() % ( 2 - 1 ) - 1;
 		  system("cls");
 		  cout << "\tход противника...";
 		  Sleep(500);
@@ -235,10 +214,10 @@ int main()
 		PlayerLVL += EnemyLVL / 5;
 		PlayerHP = PlayerLVL * 10;
 
-		cout << "\t враг повержен!";
+		cout << "\t Попеда­!";
 		Sleep(800);
 		system("cls");
-		cout << "\t это еще не конец.";
+		cout << "\t но еще не конец";
 		Sleep(300);
 		cout << '.';
 		Sleep(300);
@@ -256,7 +235,7 @@ int main()
 
 
 
-		//возможное получения случайного предмета с 30% шансом
+		//выпадение рандомного предмета с 30% шансом
 		if (RandItem <= 3 && RandItem != 0)
 		{
 			if (RandItem == 1)
@@ -275,7 +254,12 @@ int main()
 
 	}
 
+
 	MAXenemyHP = HPvrag(enemyHP, EnemyLVL);
+
+	
+
 
 	return 0;
 }
+
