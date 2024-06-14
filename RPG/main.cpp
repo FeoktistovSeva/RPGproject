@@ -158,11 +158,14 @@ int main()
 		{
 	      system("cls");
 	      enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak);
+		  
+		
 
   
 	      fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
-		  cout << endl << "ваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
-	      cout << endl << "\t       ¬вод: ";
+	
+		  cout << endl << "\t\tваш уровень: " << PlayerLVL << "\t\t     уровень врага: " << EnemyLVL;
+	      cout << endl << "\t\t\t       ¬вод: ";
 	      cin >> AtakOrHP;
 
 		  RandItem = rand() % 10;

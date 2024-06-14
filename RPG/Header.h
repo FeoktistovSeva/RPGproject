@@ -12,3 +12,11 @@ int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAtta
 
 //инвентарь
 int InventoryPrint(int miniHeal, int BigHeal, int AttakBust, const int AtakOrHP, int change = 0);
+
+
+
+//игрок
+void printPlayer();
+
+
+
