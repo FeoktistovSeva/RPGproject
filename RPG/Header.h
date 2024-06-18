@@ -1,22 +1,26 @@
 #pragma once
 
-//звязоно с врагами
+//Г§ГўГїГ§Г®Г­Г® Г± ГўГ°Г ГЈГ Г¬ГЁ
 int LVLvrag(const int slojnost, const int PlayerLVL, int EnemyLVL);
 int HPvrag(int enemyHP, int EnemyLVL);
 
 
 
-//звязанно боевкой
+//Г§ГўГїГ§Г Г­Г­Г® ГЎГ®ГҐГўГЄГ®Г©
 void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, int AtakOrHP);
 int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAttak);
 
-//инвентарь
+//ГЁГ­ГўГҐГ­ГІГ Г°Гј
 int InventoryPrint(int miniHeal, int BigHeal, int AttakBust, const int AtakOrHP, int change = 0);
 
 
 
-//игрок
+//ГЁГЈГ°Г®ГЄ
 void printPlayer();
+
+
+//firs enemy
+void printAssasin();
 
 
 
