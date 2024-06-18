@@ -23,4 +23,8 @@ void printPlayer();
 void printAssasin();
 
 
+//skeleton enemy
+void printSkleton();
+
+
 
