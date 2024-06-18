@@ -26,5 +26,7 @@ void printAssasin();
 //skeleton enemy
 void printSkleton();
 
+//first dragon boss
+void printBossDragon();
 
 
