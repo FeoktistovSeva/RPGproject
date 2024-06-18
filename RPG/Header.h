@@ -30,3 +30,8 @@ void printSkleton();
 void printBossDragon();
 
 
+
+//spider enemy
+void printSpider();
+
+
