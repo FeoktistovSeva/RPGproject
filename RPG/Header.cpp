@@ -37,12 +37,12 @@ void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, 
 {
 	cout << '\n';
 
-	cout << "\t\t\t\t\t\tÃ†Ã¨Ã§Ã­Ã¨ Ã¢Ã°Ã Ã£Ã : " << enemyHP << endl << endl;
+	cout << "\t\t\t\t\t\tæèçíè âðàãà : " << enemyHP << endl << endl;
 
-	cout << "\t\t\tÃ†Ã¨Ã§Ã­Ã¨ " << Plname << ": " << PlayerHP << endl;
+	cout << "\t\t\tæèçíè " << Plname << ": " << PlayerHP << endl;
 	printPlayer();
 
-	cout << endl << "\t\t\t1.Ã€Ã²Ã ÃªÃ " << "    2.Ã¨Ã­Ã¢Ã¥Ã­Ã²Ã Ã°Ã¼";
+	cout << endl << "\t\t\t1.àòàêà " << "    2.èíâåíòàðü";
 }
 
 int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAttak, int miss)
@@ -85,12 +85,12 @@ int InventoryPrint(int miniHeal, int BigHeal, int AttakBust, const int AtakOrHP,
 	if (AtakOrHP == 2)
 	{
 		system("cls");
-		cout << "\t\t\t               ÃˆÃ­Ã¢Ã¥Ã­Ã²Ã Ã°Ã¼: " << endl << endl;
-		cout << "\t\t\t1.ÃŒÃ Ã«Ã¥Ã­Ã¼ÃªÃ®Ã¥ Ã§Ã¥Ã«Ã¼Ã¥ Ã«Ã¥Ã·Ã¥Ã­Ã¨Ã¥: " << miniHeal << endl;
-		cout << "\t\t\t2.ÃÃ®Ã«Ã¼Ã¸Ã®Ã¥ Ã§Ã¥Ã«Ã¼Ã¥ Ã«Ã¥Ã·Ã¥Ã­Ã¨Ã¥: " << BigHeal << endl;
-		cout << "\t\t\t3.Ã§Ã¥Ã«Ã¼Ã¥ Ã±Ã¨Ã«Ã»: " << AttakBust << endl;
-		cout << "\t\t\t4.Ã‚Ã¥Ã°Ã­Ã³Ã²Ã¼Ã±Ã¿ Ãª Ã¡Ã®Ã¾" << endl;
-		cout << "Ã‚Ã¢Ã®Ã¤: ";
+		cout << "\t\t\t              èíâåíòàðü: " << endl << endl;
+		cout << "\t\t\t1.ìàëåíüêîå çåëüå ëå÷åíèå: " << miniHeal << endl;
+		cout << "\t\t\t2.áîëüøîå çåëüå ëå÷åíèå: " << BigHeal << endl;
+		cout << "\t\t\t3.çåëüå ñèëû: " << AttakBust << endl;
+		cout << "\t\t\t4.âûõîä" << endl;
+		cout << "ââîä: ";
 		cin >> change;
 	}
 	return change;
@@ -148,7 +148,7 @@ void printPlayer()
 	cout << "         :++:      -##*++*#%%%%%%%*      -%##+---=##*==**.    " << '\n';
 }
 
-<<<<<<< HEAD
+
 void PrintShop()
 {
 	system("cls");
@@ -158,7 +158,7 @@ void PrintShop()
 	cout << "\n\t3.çåëüå ñèëû - 10ìîíåò";
 	cout << "\n\t  4.âûõîä";
 }
-=======
+
 
 
 
@@ -207,7 +207,7 @@ void printAssasin()
                                                                                                                          .+@@@%%@@%%%@%*=.                           
                                                                                                                            .*@@@@@@%@@@@@@+.                          
                                                                                                                               :%@@@@+%@@@#+-.)";
-                                                                                                                 // Ð¿Ð¾Ð´ Ð½Ð¸Ð¼ Ð¶Ð¸Ð·Ð½Ð¸ â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤â¤
+                                                                           
 }
 
 
@@ -254,7 +254,7 @@ void printSkeleton()
                                                                                                            .*+                      +=*      
                                                                                                           :=-+=.                  .::+          
                                                                                                       .:==:---..:.              .---::: )";
-                                                                                                           //Ñ‚ÑƒÑ‚ Ð¶Ð¸Ð·Ð½Ð¸
+                                                                                                          
 }
 
 
@@ -320,9 +320,8 @@ void printBossDragon()
                                  ....        .-=+*%%%%%#*++-:..                                         -+   -**#*##%##+                                                                      
                                                                                                          .   =+*#=*##++#                                                                      
                                                                                                              -#%= +#%= :                                                                      
-                                                                                                              *#:  =#-                                                                                                                      
-)";
-//ÐµÐ³Ð¾ Ñ€Ð¸ÑÐ¾Ð²Ð°Ñ‚ÑŒ Ð±ÐµÐ· Ð¸Ð³Ñ€Ð¾ÐºÐ°
+                                                                                                              *#:  =#-                                                                                                                      )";
+
 }
 
 
@@ -370,4 +369,4 @@ void printSpider()
 
 
 
->>>>>>> 96f1a63bc7fd0c0a6a421b98629b3a828eeec3b2
+
