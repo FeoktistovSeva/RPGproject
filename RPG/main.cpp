@@ -37,7 +37,14 @@ int main()
 	float EnemyLVL = 1;
 	unsigned enemyHP = 0;
 	int enemyChange;
-	unsigned enemyAttak = 0;
+	int miss = 0;
+
+
+	//магазин
+	unsigned shop = 0;
+	unsigned ChangeShop;
+	unsigned money;
+
 
 
 	//инвентарь
@@ -114,8 +121,7 @@ int main()
 
 	cout << "\tна вас напали!";
 
-	nextUroven = true;
-
+	
 
 	Sleep(1300);
 	system("cls");
@@ -132,15 +138,15 @@ int main()
 		MAXenemyHP = HPvrag(enemyHP, EnemyLVL);
 		for (; enemyHP > PlayerAttak;)
 		{
-			enemyAttak++;
-			
-			
+
+
+
 
 
 
 
 			system("cls");
-			enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak);
+			enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak, miss);
 
 
 
@@ -151,7 +157,7 @@ int main()
 			cout << endl << "\t\tваш уровень: " << PlayerLVL << "\t     уровень врага: " << EnemyLVL;
 			cout << endl << "\t\t\t       Ввод: ";
 
-
+			
 
 			cin >> AtakOrHP;
 
@@ -194,94 +200,136 @@ int main()
 
 			}
 
+			//действия врага
+			enemyChange = rand() % 10;
+			system("cls");
+			cout << "\tход противника...";
+			Sleep(500);
 
-			if (enemyAttak > 0)
+
+			if (enemyChange > 5 && enemyHP < MAXenemyHP - 5)
 			{
-				enemyChange = rand() % 10;
-				system("cls");
-				cout << "\tход противника...";
-				Sleep(500);
-
-
-				if (enemyChange > 5 && enemyHP < MAXenemyHP - 5)
-				{
-					cout << "\n\tВраг лечится";
-					enemyHP += 5;
-					Sleep(700);
-				}
-				else
-				{
-					cout << "\n\tВраг атакует";
-					PlayerHP -= EnemyLVL / 2;
-					Sleep(700);
-
-					if (PlayerHP == 0)
-					{
-						system("cls");
-						cout << "\n\t\t" << Plname << " погиб!";
-						exit(0);
-					}
-
-				}
-				enemyAttak--;
+				cout << "\n\tВраг лечится";
+				enemyHP += 5;
+				Sleep(700);
 			}
+			else
+			{
+				cout << "\n\tВраг атакует";
+				PlayerHP -= (EnemyLVL / 2) + 0.5;
+				Sleep(600);
+				cout << "\n\tвраг наносит " << (EnemyLVL / 2) + 0.5 << " урона";
+				cout << "\n\tтеперь у вас " << PlayerHP << " жизеней";
+				Sleep(700);
 
-			
+				if (PlayerHP == 0)
+				{
+					system("cls");
+					cout << "\n\t\t" << Plname << " погиб!";
+					exit(0);
+				}
 
+			}
 
 		}
 
 
-		system("cls");
-		PlayerLVL += EnemyLVL / 5;
-		PlayerHP = PlayerLVL * 10;
 
-		cout << "\t Попеда­!";
-		Sleep(800);
-		system("cls");
-		cout << "\t но еще не конец";
-		Sleep(300);
-		cout << '.';
-		Sleep(300);
-		cout << '.';
-
-
-		Sleep(700);
-
-
-
-
-		EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
-		enemyHP = HPvrag(enemyHP, EnemyLVL);
-		PlayerAttak = (PlayerLVL * 3) / 2;
-
-
-
-		//выпадение рандомного предмета с 30% шансом
-		if (RandItem <= 3 && RandItem != 0)
-		{
-			if (RandItem == 1)
-			{
-				miniHeal++;
-			}
-			else if (RandItem == 2)
-			{
-				BigHeal++;
-			}
-			else if (RandItem == 3)
-			{
-				AttakBust++;
-			}
-		}
 
 	}
 
 
+	system("cls");
+	PlayerLVL += EnemyLVL / 5;
+	PlayerHP = PlayerLVL * 10;
+
+	cout << "\t Попеда­!";
+	Sleep(800);
+	system("cls");
+	cout << "\t но еще не конец";
+	Sleep(300);
+	cout << '.';
+	Sleep(300);
+	cout << '.';
+
+
+	Sleep(700);
 
 
 
+
+	EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
+	enemyHP = HPvrag(enemyHP, EnemyLVL);
+	PlayerAttak = (PlayerLVL * 3) / 2;
+
+
+
+	//выпадение рандомного предмета с 30% шансом
+	if (RandItem <= 3 && RandItem != 0)
+	{
+		if (RandItem == 1)
+		{
+			miniHeal++;
+		}
+		else if (RandItem == 2)
+		{
+			BigHeal++;
+		}
+		else if (RandItem == 3)
+		{
+			AttakBust++;
+		}
+	}
+
+
+	if (shop > 5)
+	{
+		PrintShop();
+		cout << "\nВвод:";
+		cin >> ChangeShop;
+		if (ChangeShop == 1 && money >= 5)
+		{
+			miniHeal++;
+			money -= 5;
+			shop = 0;
+		}
+		if (ChangeShop == 2 && money >= 15)
+		{
+			BigHeal++;
+			money -= 15;
+			shop = 0;
+		}
+		if (ChangeShop == 3 && money >= 10)
+		{
+			AttakBust++;
+			money -= 10;
+			shop = 0;
+		}
+		if (ChangeShop == 4)
+		{
+			shop = 0;
+		}
+		else
+		{
+			system("cls");
+			cout << "ошибка!";
+			shop = 5;
+		}
+	}
 
 
 	return 0;
-
 }
+
+
+
+
+
+
+
+
+
+
+	
+
+
