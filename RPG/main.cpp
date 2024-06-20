@@ -19,7 +19,7 @@ int main() {
     // Игрок
     const int nameSIZE = 40;
     float PlayerLVL = 1;
-    int PlayerHP = PlayerLVL * 10;
+    float PlayerHP = PlayerLVL * 10;
     char Plname[nameSIZE];
     int AtakOrHP = 0;
     int PlayerAttak;
@@ -97,6 +97,7 @@ int main() {
         Sleep(1300);
         system("cls");
         PlayerAttak = (PlayerLVL * 3) / 2;
+        unsigned RandEnemyPrint = 1 + rand() % 4;
 
         // Бой
         while (enemyHP > PlayerAttak) 
@@ -104,7 +105,7 @@ int main() {
             shop++;
             system("cls");
             enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak, miss);
-            fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP);
+            fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP, RandEnemyPrint);
             cout << endl << "\t\tВаш уровень: " << PlayerLVL << "\tУровень врага: " << EnemyLVL;
             cout << endl << "\t\t\t Ввод: ";
             cin >> AtakOrHP;
@@ -154,11 +155,14 @@ int main() {
                 Sleep(700);
                 if (PlayerHP <= 0) {
                     system("cls");
-                    cout << "\n\t\t" << Plname << " погиб!";
+                    
+                    cout << "\n\t\t\t\t\t\t" << Plname << " погиб!";
+                    PrintRIP();
                     return 0;
                 }
             }
         }
+
         // Победа
         cout << "\tПобеда!" << endl;
         Sleep(800);
@@ -226,7 +230,7 @@ int main() {
             }
             else {
                 system("cls");
-                cout << "Ошибка!";
+                cout << "\t\tОшибка!\n";
                 shop = 5;
             }
         }
