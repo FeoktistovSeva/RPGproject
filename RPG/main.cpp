@@ -87,11 +87,12 @@ int main() {
     Sleep(1700);
     system("cls");
 
+    bool Alive = true;
     // Начало боя
-    while (true) 
+    while (Alive) 
     {
         EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
-        enemyHP = HPvrag(enemyHP, EnemyLVL);
+        enemyHP = HPvrag(EnemyLVL);
         int MAXenemyHP = enemyHP;
         cout << "\tНа вас напали!";
         Sleep(1300);
@@ -154,8 +155,8 @@ int main() {
                 cout << "\n\tТеперь у вас " << PlayerHP << " жизней";
                 Sleep(700);
                 if (PlayerHP <= 0) {
+                    Alive = false;
                     system("cls");
-                    
                     cout << "\n\t\t\t\t\t\t" << Plname << " погиб!";
                     PrintRIP();
                     return 0;
@@ -164,7 +165,8 @@ int main() {
         }
 
         // Победа
-        cout << "\tПобеда!" << endl;
+        system("cls");
+        cout << "\n\tПобеда!" << endl;
         Sleep(800);
         system("cls");
         cout << "\t" << Plname << " выиграл!";
@@ -185,7 +187,7 @@ int main() {
         money++;
         Sleep(700);
         EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
-        enemyHP = HPvrag(enemyHP, EnemyLVL);
+        enemyHP = HPvrag(EnemyLVL);
         PlayerAttak = (PlayerLVL * 3) / 2;
 
         // Выпадение рандомного предмета с 30% шансом
@@ -204,7 +206,7 @@ int main() {
 
 
         // Магазин
-        if (shop >= 5) 
+        if (shop % 5 == 0) 
         {
             PrintShop();
             cout << "\n\tВаши деньги: " << money;

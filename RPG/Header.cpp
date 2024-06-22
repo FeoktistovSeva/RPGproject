@@ -14,23 +14,23 @@ int LVLvrag(const int slojnost, const int PlayerLVL,int EnemyLVL)
 {
 	if (slojnost == 1)
 	{
-		EnemyLVL = (PlayerLVL)+rand() % ((PlayerLVL + 1) - (PlayerLVL)+1);
+        return EnemyLVL = (PlayerLVL)+rand() % ((PlayerLVL + 1) - (PlayerLVL)+1);
 	}
 	else if (slojnost == 2)
 	{
-		EnemyLVL = (PlayerLVL)+rand() % ((PlayerLVL + 2) - (PlayerLVL)+1);
+        return EnemyLVL = (PlayerLVL)+rand() % ((PlayerLVL + 2) - (PlayerLVL)+1);
 	}
 	else
 	{
-		EnemyLVL = (PlayerLVL + 1) + rand() % ((PlayerLVL + 4) - (PlayerLVL + 1) + 1);
+        return EnemyLVL = (PlayerLVL + 1) + rand() % ((PlayerLVL + 4) - (PlayerLVL + 1) + 1);
 	}
-	return EnemyLVL;
+	 
 }
 
-int HPvrag(int enemyHP, int EnemyLVL)
+int HPvrag(int EnemyLVL)
 {
-	enemyHP = (EnemyLVL * 9) + rand() % (EnemyLVL * 12);
-	return enemyHP;
+    int enemyHP;
+    return enemyHP = (EnemyLVL * 9) + rand() % (EnemyLVL * 12);
 }
 
 void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, int AtakOrHP, int RandEnemyPrint)
