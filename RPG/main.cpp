@@ -28,20 +28,28 @@ int main() {
 
     // Враг
     float EnemyLVL = 1;
-    unsigned int enemyHP = 0;
+    unsigned enemyHP = 0;
     int enemyChange;
     int miss = 0;
 
     // Магазин
-    unsigned int shop = 0;
-    unsigned int ChangeShop;
-    unsigned int money = 0;
+    unsigned shop = 0;
+    unsigned ChangeShop;
+    unsigned money = 0;
 
     // Инвентарь
     int miniHeal = 2;
     int BigHeal = 1;
     int AttakBust = 1;
     int RandItem = 0;
+
+    //Босс
+    int bossFight = 0;
+    unsigned bossLVL;
+    unsigned bossHP;
+
+
+
 
     // Меню игры
     cout << "\tВведите 1, чтобы начать игру" << endl;
@@ -80,8 +88,6 @@ int main() {
 
 
 
-
-
     system("cls");
     cout << "\tДобро пожаловать, " << Plname << "!" << endl;
     Sleep(1700);
@@ -94,19 +100,31 @@ int main() {
         EnemyLVL = LVLvrag(slojnost, PlayerLVL, EnemyLVL);
         enemyHP = HPvrag(EnemyLVL);
         int MAXenemyHP = enemyHP;
-        cout << "\tНа вас напали!";
+        cout << "\n\tНа вас напали!";
         Sleep(1300);
         system("cls");
         PlayerAttak = (PlayerLVL * 3) / 2;
         unsigned RandEnemyPrint = 1 + rand() % 4;
 
+        //босс=============================
+        if (bossFight == 5)
+        {
+            bossLVL = EnemyLVL * 2;
+            bossHP = enemyHP * 2;
+
+            EnemyLVL = bossLVL;
+            enemyHP = bossHP;
+        }
+        //-------------------------------
+
+
         // Бой
         while (enemyHP > PlayerAttak) 
         {
-            shop++;
+           
             system("cls");
             enemyHP = FightGO(AtakOrHP, enemyHP, PlayerLVL, PlayerAttak, miss);
-            fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP, RandEnemyPrint);
+            fight_menu_cout(enemyHP, Plname, PlayerHP, AtakOrHP, RandEnemyPrint, bossFight);
             cout << endl << "\t\tВаш уровень: " << PlayerLVL << "\tУровень врага: " << EnemyLVL;
             cout << endl << "\t\t\t Ввод: ";
             cin >> AtakOrHP;
@@ -169,15 +187,18 @@ int main() {
         cout << "\n\tПобеда!" << endl;
         Sleep(800);
         system("cls");
-        cout << "\t" << Plname << " выиграл!";
+        cout << "\n\t" << Plname << " выиграл!";
         Sleep(800);
         system("cls");
-        cout << "\tНо еще не конец";
+        cout << "\n\tНо еще не конец";
         Sleep(300);
         cout << '.';
         Sleep(300);
         cout << '.';
         Sleep(700);
+
+        shop++;
+        bossFight++;
 
         // Получение уровня 
         PlayerLVL += EnemyLVL / 5;
@@ -237,18 +258,5 @@ int main() {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     return 0;
 }

@@ -33,21 +33,25 @@ int HPvrag(int EnemyLVL)
     return enemyHP = (EnemyLVL * 9) + rand() % (EnemyLVL * 12);
 }
 
-void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, int AtakOrHP, int RandEnemyPrint)
+void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, int AtakOrHP, int RandEnemyPrint, int bossFIght)
 {
     bool RandEnemyNotchange = true;
 	cout << '\n';
 
-	cout << "\t\t\t\t\t\tжизни врага : " << enemyHP << endl << endl;
+	cout << "\t\t\t\tжизни врага : " << enemyHP << endl << endl;
 
-	cout << "\t\t\tжизни " << Plname << ": " << PlayerHP << endl;
+	cout << "\t\t\t\tжизни " << Plname << ": " << PlayerHP << endl;
     
     
     
     while (RandEnemyNotchange == true)
     {
         RandEnemyNotchange = false;
-        if (RandEnemyPrint == 1)
+        if (bossFIght == 5)
+        {
+            printBossDragon();
+        }
+        else if (RandEnemyPrint == 1)
         {
             printKnight();
             RandEnemyPrint == 1;
@@ -68,7 +72,7 @@ void fight_menu_cout(const int enemyHP, const char* Plname, const int PlayerHP, 
             RandEnemyPrint == 4;
         }
     }
-	cout << endl << "\t\t\t1.атака " << "    2.инвентарь";
+	cout << endl << "\t\t    1.атака " << "    2.инвентарь";
 }
 
 int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAttak, int miss)
@@ -87,22 +91,6 @@ int FightGO(const int AtakOrHP, int enemyHP, const int PlayerLVL, int PlayerAtta
 	}
 	return enemyHP;
 }
-
-
-
-
-
-int missPrint(const int miss)
-{
-	if (miss >= 9)
-	{
-		system("cls");
-		cout << "\n\n\tвраг увернулся!";
-	}
-	return 0;
-}
-
-
 
 
 
