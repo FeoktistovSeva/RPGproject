@@ -1,6 +1,20 @@
-﻿  Header.cpp
-C:\Users\0001\source\repos\RPG\RPG\Header.cpp(57,28): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-C:\Users\0001\source\repos\RPG\RPG\Header.cpp(62,28): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-C:\Users\0001\source\repos\RPG\RPG\Header.cpp(67,28): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-C:\Users\0001\source\repos\RPG\RPG\Header.cpp(72,28): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+﻿  main.cpp
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(12,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(100,49): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(100,38): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(100,27): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(101,26): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(106,39): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(112,32): warning C4244: =: преобразование "float" в "unsigned int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(115,24): warning C4244: =: преобразование "unsigned int" в "float", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(122,24): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(126,50): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(127,46): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(161,44): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(172,44): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(210,49): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(210,38): warning C4244: аргумент: преобразование "float" в "const int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(210,27): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(211,26): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\0001\source\repos\RPG\RPG\main.cpp(212,39): warning C4244: =: преобразование "float" в "int", возможна потеря данных
   RPG.vcxproj -> C:\Users\0001\source\repos\RPG\x64\Debug\RPG.exe

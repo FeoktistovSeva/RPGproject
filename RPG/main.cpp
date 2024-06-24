@@ -14,7 +14,7 @@ int main() {
     // меню
     int startG;
     int slojnost = 1;
-    bool a = false;
+    bool PlameCout = false;
 
     // Игрок
     const int nameSIZE = 40;
@@ -72,15 +72,15 @@ int main() {
         cout << "Ввод: ";
         cin >> slojnost;
         system("cls");
-        a = true;
+        PlameCout = true;
     }
 
     else if (startG == 1)
     {
-        a = true;
+        PlameCout = true;
     }
 
-    if (a == true) 
+    if (PlameCout == true)
     {
         cout << "\tВведите имя: ";
         cin >> Plname;
@@ -106,7 +106,7 @@ int main() {
         PlayerAttak = (PlayerLVL * 3) / 2;
         unsigned RandEnemyPrint = 1 + rand() % 4;
 
-        //босс=============================
+        //босс
         if (bossFight == 5)
         {
             bossLVL = EnemyLVL * 2;
@@ -115,7 +115,7 @@ int main() {
             EnemyLVL = bossLVL;
             enemyHP = bossHP;
         }
-        //-------------------------------
+        
 
 
         // Бой
